@@ -2,7 +2,7 @@
 
 import { useQuery } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
-import { BookOpen, Search, Zap, Clock, ChevronRight, LayoutGrid, List, Terminal, Code, ArrowLeft } from "lucide-react";
+import { BookOpen, Search, Zap, Clock, ChevronRight, LayoutGrid, List, Terminal, Code, ArrowLeft, Bot, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -11,6 +11,8 @@ import { cn } from "@/lib/utils";
 const iconMap: Record<string, any> = {
   Terminal: Terminal,
   Code: Code,
+  Bot: Bot,
+  Sparkles: Sparkles,
 };
 
 export default function LearningPathDetailsPage() {
