@@ -2,7 +2,7 @@
 
 import { useQuery } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
-import { useUser } from "@clerk/nextjs";
+
 import { 
   BarChart3, 
   TrendingUp, 
@@ -17,9 +17,9 @@ import {
 import { cn } from "@/lib/utils";
 
 export default function AnalyticsPage() {
-  const { user } = useUser();
+  const userId = "guest";
   const userData = useQuery(api.hub.getMe);
-  const practiceHistory = useQuery(api.hub.listPractice, { userId: user?.id ?? "" });
+  const practiceHistory = useQuery(api.hub.listPractice, { userId });
 
   const stats = [
     { label: "Lessons Completed", value: "0 / 18", icon: BookOpen, color: "text-blue-500", bg: "bg-blue-500/10" },

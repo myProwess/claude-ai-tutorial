@@ -11,12 +11,10 @@ import {
   Bot,
   ChevronLeft,
   ChevronRight,
-  LogOut,
   User
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { UserButton } from "@clerk/nextjs";
 
 const navItems = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -85,16 +83,12 @@ export function Sidebar() {
       </nav>
 
       <div className="p-4 border-t border-border flex items-center gap-3 overflow-hidden">
-        <UserButton 
-          appearance={{
-            elements: {
-              avatarBox: "w-8 h-8"
-            }
-          }}
-        />
+        <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+          <User size={16} className="text-primary" />
+        </div>
         {!collapsed && (
           <div className="flex flex-col min-w-0">
-            <span className="text-sm font-medium truncate">My Account</span>
+            <span className="text-sm font-medium truncate">Guest User</span>
           </div>
         )}
       </div>

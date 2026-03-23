@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAction, useMutation } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
-import { useUser } from "@clerk/nextjs";
+
 
 const CHALLENGES = [
   { id: "1", title: "Extract JSON", description: "Convert a plain text receipt into structured JSON format.", difficulty: "Easy" },
@@ -23,7 +23,7 @@ const CHALLENGES = [
 ];
 
 export default function PlaygroundPage() {
-  const { user } = useUser();
+  const userId = "guest";
   const evaluateAction = useAction(api.ai.evaluatePrompt);
   const submitPractice = useMutation(api.hub.submitPractice);
 
@@ -36,13 +36,13 @@ export default function PlaygroundPage() {
   } | null>(null);
 
   const handleEvaluate = async () => {
-    if (!prompt.trim() || isEvaluating || !user) return;
+    if (!prompt.trim() || isEvaluating) return;
     setIsEvaluating(true);
     setResult(null);
 
     try {
       const evaluation = await evaluateAction({
-        userId: user.id,
+        userId,
         prompt: prompt,
       });
 
@@ -50,7 +50,7 @@ export default function PlaygroundPage() {
 
       // Save to DB
       await submitPractice({
-        userId: user.id,
+        userId,
         prompt: prompt,
         score: evaluation.score,
         feedback: evaluation.feedback,

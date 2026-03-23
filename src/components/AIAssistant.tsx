@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAction, useQuery, useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import { useUser } from "@clerk/nextjs";
+
 
 interface Message {
   id: string;
@@ -15,12 +15,12 @@ interface Message {
 }
 
 export function AIAssistant() {
-  const { user } = useUser();
+  const userId = "guest";
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   
   // Actually we should pull history from Convex
-  const history = useQuery(api.hub.listMessages, { userId: user?.id ?? "" });
+  const history = useQuery(api.hub.listMessages, { userId });
   const sendMessage = useMutation(api.hub.sendMessage);
   const chatAction = useAction(api.ai.chat);
   
@@ -42,7 +42,7 @@ export function AIAssistant() {
   }, [messages, isOpen]);
 
   const handleSend = async () => {
-    if (!input.trim() || isLoading || !user) return;
+    if (!input.trim() || isLoading) return;
 
     const userContent = input;
     setInput("");
@@ -51,20 +51,20 @@ export function AIAssistant() {
     try {
       // 1. Save user message to DB
       await sendMessage({
-        userId: user.id,
+        userId,
         role: "user",
         content: userContent
       });
 
       // 2. Call Claude API via Convex Action
       const response = await chatAction({
-        userId: user.id,
+        userId,
         content: userContent
       });
 
       // 3. Save assistant response to DB
       await sendMessage({
-        userId: user.id,
+        userId,
         role: "assistant",
         content: response
       });

@@ -1,0 +1,24 @@
+﻿node.exe : Retrieving projectΓÇª
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" 
+"C:\Users\sayto\AppData\Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Retr 
+   ieving projectΓÇª:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+> Environment Variables found for 
+prabukathiresan09-6348s-projects/claude-tutorial 
+[455ms]
+
+ name                       value               environments                        created    
+ CONVEX_DEPLOY_KEY          Encrypted           Development, Preview, Production    19m ago    
+ CLERK_SECRET_KEY           Encrypted           Production, Preview, Development    21m ago    
+ CLERK_JWT_ISSUER_DOMAIN    Encrypted           Production, Preview, Development    21m ago    
+ NEXT_PUBLIC_CONVEX_URL     Encrypted           Production, Preview, Development    21m ago    
+
+Common next commands:
+- `vercel env add`
+- `vercel env rm`
+- `vercel env pull`

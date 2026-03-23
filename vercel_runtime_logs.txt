@@ -1,0 +1,12 @@
+﻿node.exe : Error: unknown or unexpected option: 
+--output
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" 
+"C:\Users\sayto\AppData\Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Erro 
+   r: unknown ...ption: --output:String) [], Rem  
+  oteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
