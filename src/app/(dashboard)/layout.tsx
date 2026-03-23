@@ -1,3 +1,5 @@
+"use client";
+
 import { Sidebar } from "@/components/Sidebar";
 import { AIAssistant } from "@/components/AIAssistant";
 import { useSyncUser } from "@/hooks/useSyncUser";

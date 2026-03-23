@@ -17,14 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <ConvexClientProvider>
-        <html lang="en" suppressHydrationWarning>
-          <body className={`${inter.className} min-h-screen bg-background`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} min-h-screen bg-background`}>
+        <ClerkProvider>
+          <ConvexClientProvider>
             {children}
-          </body>
-        </html>
-      </ConvexClientProvider>
-    </ClerkProvider>
+          </ConvexClientProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }

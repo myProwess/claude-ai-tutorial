@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 
 export default function AnalyticsPage() {
   const { user } = useUser();
-  const userData = useQuery(api.hub.getMe, { clerkId: user?.id ?? "" });
+  const userData = useQuery(api.hub.getMe);
   const practiceHistory = useQuery(api.hub.listPractice, { userId: user?.id ?? "" });
 
   const stats = [

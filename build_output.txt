@@ -1,0 +1,46 @@
+﻿Γû▓ Next.js 16.2.1 (Turbopack)
+- Environments: .env.local
+
+node.exe : ΓÜá The "middleware" file convention 
+is deprecated. Please use "proxy" instead. Learn 
+more: https://nextjs.org/docs/messages/middleware-
+to-proxy
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" 
+"C:\Users\sayto\AppData\Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ΓÜá  
+   The "middle...leware-to-proxy:String) [], Rem  
+  oteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 7.7s
+  Running TypeScript ...
+  Finished TypeScript in 8.1s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/9) ...
+  Generating static pages using 7 workers (2/9) 
+  Generating static pages using 7 workers (4/9) 
+  Generating static pages using 7 workers (6/9) 
+Γ£ô Generating static pages using 7 workers (9/9) in 735ms
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /admin
+Γö£ Γùï /analytics
+Γö£ Γùï /blog
+Γö£ Γùï /dashboard
+Γö£ Γùï /lessons
+Γö£ ╞Æ /lessons/[slug]
+Γöö Γùï /playground
+
+
+╞Æ Proxy (Middleware)
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+

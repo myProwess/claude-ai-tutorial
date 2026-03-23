@@ -12,7 +12,7 @@ import {
   Bot
 } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const RECOMMENDED_MODULES = [
   { id: "bas", title: "Basics of Claude", description: "Learn how to communicate effectively with the model.", time: "45 mins", difficulty: "Easy" },
