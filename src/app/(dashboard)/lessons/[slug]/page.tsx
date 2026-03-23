@@ -16,6 +16,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import ReactMarkdown from "react-markdown";
 
 export default function LessonDetailsPage() {
   const params = useParams();
@@ -67,22 +68,22 @@ export default function LessonDetailsPage() {
               </p>
            </header>
 
-           <div className="prose prose-lg dark:prose-invert max-w-none text-foreground leading-relaxed font-medium">
-              <div className="bg-sidebar/50 border border-border rounded-3xl p-8 shadow-sm">
-                 <div className="flex items-center gap-2 mb-6 text-primary">
-                    <BookOpen size={24} />
-                    <span className="font-black uppercase tracking-[2px] text-xs">Core Concepts</span>
-                 </div>
-                 {/* Imagine Markdown parsing here */}
-                 <div className="space-y-6">
-                    {lesson.content.split("\n\n").map((para, i) => (
-                       <p key={i} className={para.startsWith("#") ? "text-2xl font-black pt-6" : ""}>
-                          {para}
-                       </p>
-                    ))}
-                 </div>
-              </div>
-           </div>
+            <div className="bg-sidebar/50 border border-border rounded-3xl p-8 shadow-sm overflow-hidden">
+               <div className="flex items-center gap-2 mb-8 text-primary">
+                  <BookOpen size={24} />
+                  <span className="font-black uppercase tracking-[2px] text-xs">Expert Methodology</span>
+               </div>
+               <div className="prose prose-lg prose-invert max-w-none 
+                 prose-headings:text-foreground prose-headings:font-black prose-headings:tracking-tighter
+                 prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:font-medium
+                 prose-strong:text-foreground prose-strong:font-black
+                 prose-pre:bg-black/40 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-2xl prose-pre:p-6
+                 prose-code:text-primary prose-code:bg-primary/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
+                 prose-ul:list-disc prose-ul:pl-6 prose-li:text-muted-foreground
+                 prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:px-6 prose-blockquote:py-1 prose-blockquote:rounded-r-xl prose-blockquote:italic">
+                  <ReactMarkdown>{lesson.content}</ReactMarkdown>
+               </div>
+            </div>
 
            <div className="flex items-center justify-between p-8 bg-primary rounded-3xl text-primary-foreground shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 group-hover:opacity-20 transition-all">

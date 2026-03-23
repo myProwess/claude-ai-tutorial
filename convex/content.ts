@@ -47,6 +47,7 @@ export const getBlogPostBySlug = query({
 // Admin Mutations (For Phase 2)
 export const createLesson = mutation({
   args: {
+    learningPathId: v.optional(v.id("learningPaths")),
     title: v.string(),
     description: v.string(),
     content: v.string(),
@@ -57,7 +58,6 @@ export const createLesson = mutation({
     isPublished: v.boolean(),
   },
   handler: async (ctx, args) => {
-     // Check admin identity? For now just insert
      return await ctx.db.insert("lessons", args);
   },
 });

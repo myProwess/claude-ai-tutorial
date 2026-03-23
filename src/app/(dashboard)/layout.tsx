@@ -1,8 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-import { useMutation } from "convex/react";
-import { api } from "../../../convex/_generated/api";
 import { Sidebar } from "@/components/Sidebar";
 import { AIAssistant } from "@/components/AIAssistant";
 
@@ -11,16 +8,6 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const createUser = useMutation(api.hub.createUser);
-
-  useEffect(() => {
-    createUser({
-      clerkId: "guest",
-      email: "guest@example.com",
-      name: "Guest User",
-    }).catch(console.error);
-  }, [createUser]);
-
   return (
     <div className="flex h-screen overflow-hidden bg-background">
       <Sidebar />

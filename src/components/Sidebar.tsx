@@ -7,22 +7,19 @@ import {
   BookOpen, 
   FlaskConical, 
   BarChart3, 
-  Settings,
   Bot,
   ChevronLeft,
   ChevronRight,
-  User
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 const navItems = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-  { name: "Learning Paths", href: "/lessons", icon: BookOpen },
+  { name: "Learning Paths", href: "/learning-paths", icon: BookOpen },
   { name: "Practice Playground", href: "/playground", icon: FlaskConical },
   { name: "Insights Blog", href: "/blog", icon: Bot },
   { name: "Analytics", href: "/analytics", icon: BarChart3 },
-  { name: "Mastery Console", href: "/admin", icon: Settings },
 ];
 
 export function Sidebar() {
@@ -82,15 +79,9 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="p-4 border-t border-border flex items-center gap-3 overflow-hidden">
-        <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-          <User size={16} className="text-primary" />
-        </div>
-        {!collapsed && (
-          <div className="flex flex-col min-w-0">
-            <span className="text-sm font-medium truncate">Guest User</span>
-          </div>
-        )}
+      <div className="p-4 border-t border-border flex items-center gap-3">
+         <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+         {!collapsed && <span className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">System Online</span>}
       </div>
     </aside>
   );

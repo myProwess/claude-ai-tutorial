@@ -51,7 +51,17 @@ export default defineSchema({
     userId: v.optional(v.string()),
   }),
 
+  learningPaths: defineTable({
+    title: v.string(),
+    description: v.string(),
+    slug: v.string(),
+    icon: v.string(), // Lucide icon name or emoji
+    order: v.number(),
+    isPublished: v.boolean(),
+  }).index("by_order", ["order"]).index("by_slug", ["slug"]),
+
   lessons: defineTable({
+    learningPathId: v.optional(v.id("learningPaths")),
     title: v.string(),
     description: v.string(),
     content: v.string(), // Markdown content
@@ -60,7 +70,7 @@ export default defineSchema({
     duration: v.string(),
     order: v.number(),
     isPublished: v.boolean(),
-  }).index("by_order", ["order"]).index("by_slug", ["slug"]),
+  }).index("by_order", ["order"]).index("by_slug", ["slug"]).index("by_path", ["learningPathId"]).index("by_path_order", ["learningPathId", "order"]),
 
   blogPosts: defineTable({
     title: v.string(),
